@@ -13,6 +13,8 @@ import org.junit.jupiter.api.Test;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
+import no.hvl.dat108.model.Deltager;
+import no.hvl.dat108.model.TestableDeltager;
 
 public class DeltagerValideringTest {
 

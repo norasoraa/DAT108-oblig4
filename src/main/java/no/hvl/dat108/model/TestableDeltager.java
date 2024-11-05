@@ -1,4 +1,4 @@
-package no.hvl.dat108;
+package no.hvl.dat108.model;
 
 /**
  * Interface used for representing the {@link Deltager} in tests.

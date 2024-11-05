@@ -1,4 +1,4 @@
-package no.hvl.dat108;
+package no.hvl.dat108.model;
 
 import java.util.List;
 import java.util.stream.Collectors;
