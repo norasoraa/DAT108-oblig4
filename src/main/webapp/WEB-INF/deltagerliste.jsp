@@ -10,6 +10,7 @@
 </head>
 
 <body>
+	<h6>Innlogget som: ${deltager.mobil}/ ${deltager.navn}</h6>
 	<h1>Deltagerliste</h1>
 	<table>
 		<tr>
@@ -30,6 +31,9 @@
 		</tr>
 		</c:forEach>
 	</table>
-	<a href="/paamelding">Gå til påmelding</a>
+
+	<form action="logout" method="post">
+		<input type="submit" value="Logg ut">
+	</form>
 </body>
 </html>

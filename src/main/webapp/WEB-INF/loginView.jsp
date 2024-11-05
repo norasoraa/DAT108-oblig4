@@ -19,6 +19,7 @@
       <input type="text" name="mobil" id="mobil" pattern="[0-9]{8}">
       <p>Passord:</p>
       <input type="password" name="passord" id="passord" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$">
+      <p><input type="submit" value="Logg inn"></p>
     </fieldset>
   </form>
 </body>
