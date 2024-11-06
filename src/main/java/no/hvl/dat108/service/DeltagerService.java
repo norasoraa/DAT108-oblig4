@@ -1,14 +1,16 @@
-package no.hvl.dat108.model;
+package no.hvl.dat108.service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import no.hvl.dat108.model.Deltager;
+
 /**
  * Class that contains a list of all participants as a list of {@link Deltager}.
  * Contains methods for extracting and modifying the list.
  */
-public class Deltagere {
+public class DeltagerService {
 
   private static List<Deltager> alleDeltagere = Stream
       .of(new Deltager("Anne", "Panne", "23456789", "kvinne", "jdd3kedkWle", "jdd3kedkWle"),

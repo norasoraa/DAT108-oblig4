@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import jakarta.validation.Valid;
 import no.hvl.dat108.model.Deltager;
-import no.hvl.dat108.model.Deltagere;
+import no.hvl.dat108.service.DeltagerService;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -45,7 +45,7 @@ public class PaameldingController {
     }
 
     // Sjekk for mobilnummer og legg til deltager dersom gyldig
-    if (!Deltagere.addDeltager(deltager)) {
+    if (!DeltagerService.addDeltager(deltager)) {
       model.addAttribute("errorMessage", "Mobilnummeret er allerede registrert.");
       return "redirect:paameld";
     }
@@ -58,7 +58,7 @@ public class PaameldingController {
   @ResponseBody
   public Map<String, Boolean> sjekkMobilnummer(@RequestParam String mobil) {
     Map<String, Boolean> respons = new HashMap<>();
-    respons.put("eksistererNummer", Deltagere.eksistererNummer(mobil));
+    respons.put("eksistererNummer", DeltagerService.eksistererNummer(mobil));
     return respons; // Returnerer et JSON-svar til frontend
   }
   

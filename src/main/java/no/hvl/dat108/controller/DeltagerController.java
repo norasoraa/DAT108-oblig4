@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import no.hvl.dat108.model.Deltager;
-import no.hvl.dat108.model.Deltagere;
+import no.hvl.dat108.service.DeltagerService;
 
 @Controller
 @RequestMapping("/deltagerliste")
@@ -17,7 +17,7 @@ public class DeltagerController {
 
   @GetMapping()
   public String deltagerliste(Model model) {
-    List<Deltager> alleDeltagere = Deltagere.getAlleDeltagere();
+    List<Deltager> alleDeltagere = DeltagerService.getAlleDeltagere();
     alleDeltagere.sort(Comparator.comparing(Deltager::getFornavn).thenComparing(Deltager::getEtternavn));
     model.addAttribute("deltagere", alleDeltagere);
     return "deltagerliste";
