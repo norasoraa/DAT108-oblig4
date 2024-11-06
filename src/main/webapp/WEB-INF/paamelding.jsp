@@ -25,7 +25,7 @@
 			<p>Etternavn</p>
 			<input type="text" name="etternavn"  id="etternavn" pattern="[A-ZÆØÅ][a-zæøåA-ZÆØÅ\\-]{1,19}" title="2 til 20 tegn. Første tegn skal være en stor bokstav. Kan bare inneholde bokstaver og bindestrek" value="${deltager.etternavn}" required>
 			<p>Mobil (8 siffer)</p>
-			<input type="text" name="mobilnummer" id="mobilnummer" pattern="[0-9]{8}" title="Mobilnummer må være eksakt 8 sifre" value="${deltager.mobilnummer}" required>
+			<input type="text" name="mobil" id="mobil" pattern="[0-9]{8}" title="Mobilnummer må være eksakt 8 sifre" value="${deltager.mobil}" required>
 			<p>Passord</p>
 			<input type="password" name="passord" id="passord" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" title="Minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall" value="${deltager.passord}" required>
 			<p>Passord repetert</p>
