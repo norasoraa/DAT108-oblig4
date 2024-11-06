@@ -15,7 +15,7 @@ public class Deltager implements TestableDeltager {
   private String etternavn;
 
   @Pattern(regexp = "[0-9]{8}", message = "Mobilnummer må være eksakt 8 sifre.")
-  private String mobilnummer;
+  private String mobil;
 
   @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$", message = "Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.")
   private String passord;
@@ -25,10 +25,10 @@ public class Deltager implements TestableDeltager {
   private String kjonn;
 
   /** Constructs a new {@link Deltager} with the given arguments. */
-  public Deltager(String fornavn, String etternavn, String mobilnummer, String kjonn, String passord, String repetertPassord) {
+  public Deltager(String fornavn, String etternavn, String mobil, String kjonn, String passord, String repetertPassord) {
     this.fornavn = fornavn;
     this.etternavn = etternavn;
-    this.mobilnummer = mobilnummer;
+    this.mobil = mobil;
     this.kjonn = kjonn;
     this.passord = passord;
     this.repetertPassord = repetertPassord;
@@ -42,8 +42,8 @@ public class Deltager implements TestableDeltager {
     return etternavn;
   }
 
-  public String getMobilnummer() {
-    return mobilnummer;
+  public String getMobil() {
+    return mobil;
   }
 
   public String getPassord() {
@@ -58,7 +58,7 @@ public class Deltager implements TestableDeltager {
     return kjonn;
   }
 
-  public String getNavn() {
+  public String getFulltNavn() {
     return fornavn + " " + etternavn;
   }
 
@@ -73,8 +73,8 @@ public class Deltager implements TestableDeltager {
   }
 
   @Override
-  public void setMobilnummer(String mobilnummer) {
-    this.mobilnummer = mobilnummer;
+  public void setMobil(String mobil) {
+    this.mobil = mobil;
   }
 
   @Override
@@ -85,11 +85,6 @@ public class Deltager implements TestableDeltager {
   @Override
   public void setPassord(String passord) {
     this.passord = passord;
-  }
-
-  @Override
-  public void setRepetertPassord(String repetertPassord) {
-    this.repetertPassord = repetertPassord;
   }
 
 }

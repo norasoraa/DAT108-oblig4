@@ -27,7 +27,7 @@ public class Deltagere {
    *         addition was successful
    */
   public static boolean addDeltager(Deltager deltager) {
-    if (eksistererNummer(deltager.getMobilnummer())) {
+    if (eksistererNummer(deltager.getMobil())) {
       return false;
     }
     alleDeltagere.add(deltager);
@@ -40,9 +40,9 @@ public class Deltagere {
    * @param mobilnummer the number to check
    * @return {@code true} if the number already exists, {@code false} otherwise
    */
-  public static boolean eksistererNummer(String mobilnummer) {
+  public static boolean eksistererNummer(String mobil) {
     for (Deltager deltager : alleDeltagere) {
-      if (deltager.getMobilnummer().equals(mobilnummer)) {
+      if (deltager.getMobil().equals(mobil)) {
         return true;
       }
     }

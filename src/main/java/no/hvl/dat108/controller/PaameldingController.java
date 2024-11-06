@@ -56,9 +56,9 @@ public class PaameldingController {
 
   @GetMapping("/sjekkMobilnummer")
   @ResponseBody
-  public Map<String, Boolean> sjekkMobilnummer(@RequestParam String mobilnummer) {
+  public Map<String, Boolean> sjekkMobilnummer(@RequestParam String mobil) {
     Map<String, Boolean> respons = new HashMap<>();
-    respons.put("eksistererNummer", Deltagere.eksistererNummer(mobilnummer));
+    respons.put("eksistererNummer", Deltagere.eksistererNummer(mobil));
     return respons; // Returnerer et JSON-svar til frontend
   }
   
