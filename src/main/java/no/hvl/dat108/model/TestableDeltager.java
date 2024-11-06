@@ -11,12 +11,10 @@ public interface TestableDeltager {
 
   void setEtternavn(String etternavn);
 
-  void setMobilnummer(String mobilnummer);
+  void setMobil(String mobil);
 
   void setKjonn(String kjonn);
 
   void setPassord(String passord);
-
-  void setRepetertPassord(String repetertPassord);
-
+  
 }

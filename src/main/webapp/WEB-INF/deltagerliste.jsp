@@ -10,7 +10,7 @@
 </head>
 
 <body>
-	<h6>Innlogget som: ${deltager.mobil}/ ${deltager.navn}</h6>
+	<h6>Innlogget som: ${deltager.mobil}/ ${deltager.fulltNavn}</h6>
 	<h1>Deltagerliste</h1>
 	<table>
 		<tr>
@@ -26,8 +26,8 @@
 					<c:when test="${deltager.kjonn == 'kvinne'}"> &#9792; </c:when>
 				</c:choose>
 			</td>
-			<td align="left">${deltager.navn}</td>
-			<td align="left">${deltager.mobilnummer}</td>
+			<td align="left">${deltager.fulltNavn}</td>
+			<td align="left">${deltager.mobil}</td>
 		</tr>
 		</c:forEach>
 	</table>

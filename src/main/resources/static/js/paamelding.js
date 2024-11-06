@@ -21,22 +21,22 @@ passordRepert.addEventListener("input", sjekkPassord);
 
 
 // Validerer mobilnummer
-const mobilnummer = document.getElementById("mobilnummer");
+const mobil = document.getElementById("mobil");
 
 function sjekkMobilnummer(event) {
   event.preventDefault();
-  const mobilnummerValue = mobilnummer.value;
-  mobilnummer.setCustomValidity("");
+  const mobilValue = mobil.value;
+  mobil.setCustomValidity("");
 
-  fetch(`/sjekkMobilnummer?mobilnummer=${mobilnummerValue}`)
+  fetch(`/sjekkMobilnummer?mobil=${mobilValue}`)
     .then(response => response.json())
     .then(data => {
       if (data.eksistererNummer) {
-        mobilnummer.setCustomValidity("Mobilnummeret er allerede registrert.");
-        mobilnummer.reportValidity();
+        mobil.setCustomValidity("Mobilnummeret er allerede registrert.");
+        mobil.reportValidity();
       }
       else {
-        mobilnummer.setCustomValidity("");
+        mobil.setCustomValidity("");
         document.querySelector("form").submit();
       }
     })
@@ -46,8 +46,8 @@ function sjekkMobilnummer(event) {
 }
 
 // Fjern feilmeldinger dynamisk når brukeren skriver
-mobilnummer.addEventListener("input", function () {
-  mobilnummer.setCustomValidity("");
+mobil.addEventListener("input", function () {
+  mobil.setCustomValidity("");
 })
 
 // Validering av mobilnummer når skjemaet sendes

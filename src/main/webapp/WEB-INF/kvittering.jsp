@@ -14,7 +14,7 @@
 	<p>
 		&nbsp;&nbsp;&nbsp;${deltager.fornavn}<br />
 		&nbsp;&nbsp;&nbsp;${deltager.etternavn}<br />
-		&nbsp;&nbsp;&nbsp;${deltager.mobilnummer}<br /> &nbsp;&nbsp;&nbsp;${deltager.kjonn}
+		&nbsp;&nbsp;&nbsp;${deltager.mobil}<br /> &nbsp;&nbsp;&nbsp;${deltager.kjonn}
 	</p>
 	<a href="/deltagerliste">Gå til deltagerlisten</a>
 </body>

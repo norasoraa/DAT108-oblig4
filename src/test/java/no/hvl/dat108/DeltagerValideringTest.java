@@ -103,13 +103,13 @@ public class DeltagerValideringTest {
 
   @Test
   void ugyldigNummerMedBokstav() {
-    testDeltager.setMobilnummer("1234567k");
+    testDeltager.setMobil("1234567k");
     sjekkUgyldigVedBestemtFeil("Mobilnummer må være eksakt 8 sifre.");
   }
 
   @Test
   void ugyldigNummerAntallSiffer() {
-    testDeltager.setMobilnummer("12345");
+    testDeltager.setMobil("12345");
     sjekkUgyldigVedBestemtFeil("Mobilnummer må være eksakt 8 sifre.");
   }
 
