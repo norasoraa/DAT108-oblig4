@@ -26,7 +26,6 @@ public class DeltagerController {
     List<Deltager> alleDeltagere = deltagerService.getAlleDeltagere();
     alleDeltagere.sort(Comparator.comparing(Deltager::getFornavn).thenComparing(Deltager::getEtternavn));
     model.addAttribute("deltagerListe", alleDeltagere);
-    session.getAttribute("deltager");
     return "deltagerliste";
   }
 
