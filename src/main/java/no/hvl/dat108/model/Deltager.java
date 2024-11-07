@@ -4,7 +4,6 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import jakarta.validation.constraints.Pattern;
 
 /**
@@ -27,14 +26,6 @@ public class Deltager implements TestableDeltager {
   @Column(name = "mobil")
   @Pattern(regexp = "[0-9]{8}", message = "Mobilnummer må være eksakt 8 sifre.")
   private String mobil;
-
-  /*
-   * @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$", message =
-   * "Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall."
-   * )
-   */
-  @Transient
-  private String passord;
 
   @Column(name = "kjonn")
   private String kjonn;
@@ -71,12 +62,6 @@ public class Deltager implements TestableDeltager {
     return mobil;
   }
 
-  /*
-   * public String getPassord() {
-   * return passord;
-   * }
-   */
-
   public String getKjonn() {
     return kjonn;
   }
@@ -92,12 +77,6 @@ public class Deltager implements TestableDeltager {
   public String getFulltNavn() {
     return fornavn + " " + etternavn;
   }
-
-  /*
-   * public void setPassord(Passord passord) {
-   * passord1 = passord;
-   * }
-   */
 
   @Override
   public void setFornavn(String fornavn) {
@@ -117,11 +96,6 @@ public class Deltager implements TestableDeltager {
   @Override
   public void setKjonn(String kjonn) {
     this.kjonn = kjonn;
-  }
-
-  @Override
-  public void setPassord(String passord) {
-    this.passord = passord;
   }
 
 }

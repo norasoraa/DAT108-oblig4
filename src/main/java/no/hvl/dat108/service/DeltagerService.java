@@ -37,12 +37,6 @@ public class DeltagerService {
    * @return {@code true} if the number already exists, {@code false} otherwise
    */
   public boolean eksistererNummer(String mobil) {
-    /* for (Deltager deltager : alleDeltagere) {
-      if (deltager.getMobil().equals(mobil)) {
-        return true;
-      }
-    }
-    return false; */
     return deltagerRepo.existsById(mobil);
   }
 

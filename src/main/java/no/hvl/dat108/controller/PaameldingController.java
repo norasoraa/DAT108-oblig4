@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jakarta.servlet.http.HttpSession;
 import jakarta.validation.Valid;
@@ -41,32 +42,32 @@ public class PaameldingController {
       @Valid @ModelAttribute("deltager") Deltager deltager,
       BindingResult bindingResult, @RequestParam String fornavn, @RequestParam String etternavn,
       @RequestParam String mobil, @RequestParam String kjonn, @RequestParam String passord,
-      @RequestParam String repetertPassord, HttpSession session) {
+      @RequestParam String repetertPassord, HttpSession session, RedirectAttributes ra) {
 
     if (bindingResult.hasErrors()) {
-      model.addAttribute("feilmeldinger", "Påmeldingsdetaljer er ugyldige");
-      return "paamelding";
+      ra.addFlashAttribute("feilmeldinger", "Påmeldingsdetaljer er ugyldige");
+      return "redirect:paameld";
     }
 
     // Validerer passord
     if (!passord.equals(repetertPassord)) {
-      model.addAttribute("errorMessage", "Passordene er ikke like.");
-      return "paamelding";
+      ra.addFlashAttribute("errorMessage", "Passordene er ikke like.");
+      return "redirect:paameld";
     }
 
     // Sjekk om mobilnummer eksisterer
     if (deltagerService.eksistererNummer(mobil)) {
-      model.addAttribute("errorMessage", "Mobilnummeret er allerede registrert.");
-      return "paamelding";
+      ra.addFlashAttribute("errorMessage", "Mobilnummeret er allerede registrert.");
+      return "redirect:paameld";
     }
 
     String salt = passordService.genererTilfeldigSalt();
     passord = passordService.hashMedSalt(passord, salt);
     Deltager nyDeltager = new Deltager(fornavn, etternavn, mobil, kjonn, passord, salt);
     deltagerService.saveDeltager(nyDeltager);
-    // legg til på ra
+    
     model.addAttribute("deltager", nyDeltager);
-    // legg til på session
+    session.setAttribute("deltager", nyDeltager);
 
     // Send til bekreftelse siden dersom gyldig deltaker
     return "kvittering";

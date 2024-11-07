@@ -15,6 +15,4 @@ public interface TestableDeltager {
 
   void setKjonn(String kjonn);
 
-  void setPassord(String passord);
-
 }
