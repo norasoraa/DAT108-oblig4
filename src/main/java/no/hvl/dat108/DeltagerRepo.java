@@ -6,5 +6,5 @@ import no.hvl.dat108.model.Deltager;
 
 public interface DeltagerRepo extends JpaRepository<Deltager, String> {
 
-  Deltager findByMobil(String mobil); 
+  Deltager findByMobil(String mobil);
 }

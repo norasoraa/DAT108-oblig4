@@ -22,15 +22,18 @@ public class Deltager implements TestableDeltager {
   @Column(name = "etternavn")
   @Pattern(regexp = "[A-ZÆØÅ][a-zæøåA-ZÆØÅ\\-]{1,19}", message = "Etternavn må inneholde minst 2 tegn og ikke mer enn 20. Første tegn skal være en stor bokstav. Kan bare inneholde bokstaver og bindestrek.")
   private String etternavn;
- 
+
   @Id
   @Column(name = "mobil")
   @Pattern(regexp = "[0-9]{8}", message = "Mobilnummer må være eksakt 8 sifre.")
   private String mobil;
-  
-  
-  /* @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$", message = "Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.") */
-  @Transient 
+
+  /*
+   * @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$", message =
+   * "Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall."
+   * )
+   */
+  @Transient
   private String passord;
 
   @Column(name = "kjonn")
@@ -53,7 +56,8 @@ public class Deltager implements TestableDeltager {
     this.hash = hash;
   }
 
-  public Deltager() {}
+  public Deltager() {
+  }
 
   public String getFornavn() {
     return fornavn;
@@ -67,9 +71,11 @@ public class Deltager implements TestableDeltager {
     return mobil;
   }
 
-  /* public String getPassord() {
-    return passord;
-  } */
+  /*
+   * public String getPassord() {
+   * return passord;
+   * }
+   */
 
   public String getKjonn() {
     return kjonn;
@@ -87,9 +93,11 @@ public class Deltager implements TestableDeltager {
     return fornavn + " " + etternavn;
   }
 
-  /* public void setPassord(Passord passord) {
-    passord1 = passord;
-  } */
+  /*
+   * public void setPassord(Passord passord) {
+   * passord1 = passord;
+   * }
+   */
 
   @Override
   public void setFornavn(String fornavn) {
