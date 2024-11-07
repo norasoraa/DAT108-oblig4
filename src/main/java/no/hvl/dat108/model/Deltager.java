@@ -13,19 +13,19 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(schema = "deltager_db", name = "deltager")
 public class Deltager implements TestableDeltager {
+  
+  @Id
+  @Column(name = "mobil")
+  @Pattern(regexp = "[0-9]{8}", message = "Mobilnummer må være eksakt 8 sifre.")
+  private String mobil;
 
-  @Pattern(regexp = "[A-ZÆØÅ][a-zæøåA-ZÆØÅ\\- ]{1,19}", message = "Fornavn må inneholde minst 2 tegn og ikke mer enn 20. Første tegn skal være en stor bokstav. Kan bare inneholde bokstaver, bindestrek og mellomrom.")
   @Column(name = "fornavn")
+  @Pattern(regexp = "[A-ZÆØÅ][a-zæøåA-ZÆØÅ\\- ]{1,19}", message = "Fornavn må inneholde minst 2 tegn og ikke mer enn 20. Første tegn skal være en stor bokstav. Kan bare inneholde bokstaver, bindestrek og mellomrom.")
   private String fornavn;
 
   @Column(name = "etternavn")
   @Pattern(regexp = "[A-ZÆØÅ][a-zæøåA-ZÆØÅ\\-]{1,19}", message = "Etternavn må inneholde minst 2 tegn og ikke mer enn 20. Første tegn skal være en stor bokstav. Kan bare inneholde bokstaver og bindestrek.")
   private String etternavn;
-
-  @Id
-  @Column(name = "mobil")
-  @Pattern(regexp = "[0-9]{8}", message = "Mobilnummer må være eksakt 8 sifre.")
-  private String mobil;
 
   @Column(name = "kjonn")
   private String kjonn;

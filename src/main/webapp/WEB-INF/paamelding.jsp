@@ -17,6 +17,7 @@
 			${feilmelding}<br>
 		</c:forEach>
 	</p>
+	<p style="color:red;">${errorMessage}</p>
 
 	<form action="paameld" method="post">
 		<fieldset>

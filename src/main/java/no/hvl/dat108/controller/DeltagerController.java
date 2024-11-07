@@ -25,7 +25,7 @@ public class DeltagerController {
   @GetMapping()
   public String deltagerliste(Model model, HttpSession session, RedirectAttributes ra) {
     if (!LoginUtil.erBrukerInnlogget(session)) {
-      ra.addFlashAttribute("redirectMessage", "Du må være innlogget for å se deltagerlisten");
+      ra.addFlashAttribute("errorMessage", "Du må være innlogget for å se deltagerlisten");
 			return "redirect:login";
     }
     List<Deltager> alleDeltagere = deltagerService.getAlleDeltagere();

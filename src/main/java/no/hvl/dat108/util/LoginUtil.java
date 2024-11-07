@@ -25,7 +25,6 @@ public class LoginUtil {
 
   public static boolean erBrukerInnlogget(HttpSession session) {
     return session != null && session.getAttribute("mobil") != null
-        && session.getAttribute("hash") != null && session.getAttribute("salt") != null
-        && session.getAttribute("deltger") != null;
+        && session.getAttribute("hash") != null && session.getAttribute("salt") != null;
   }
 }
