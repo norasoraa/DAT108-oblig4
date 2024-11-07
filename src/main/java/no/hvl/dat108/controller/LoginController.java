@@ -34,7 +34,7 @@ public class LoginController {
     Deltager deltager = deltagerService.finnDeltager(mobil);
     if (!deltagerService.eksistererNummer(mobil) ||
         !passordService.erKorrektPassord(passord, deltager.getSalt(), deltager.getHash())) {
-      ra.addFlashAttribute("errorMessage", "Feil brukernavn eller passord");
+      ra.addFlashAttribute("errorMessage", "Ugyldig brukernavn og/eller passord");
       return "redirect:login";
     }
     return "redirect:deltagerliste";
