@@ -13,6 +13,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import no.hvl.dat108.model.Deltager;
 import no.hvl.dat108.service.DeltagerService;
 import no.hvl.dat108.service.PassordService;
+import no.hvl.dat108.util.LoginUtil;
 
 @Controller
 @RequestMapping("/login")
@@ -32,11 +33,13 @@ public class LoginController {
   public String login(@RequestParam String mobil, @RequestParam String passord, HttpServletRequest request,
       RedirectAttributes ra) {
     Deltager deltager = deltagerService.finnDeltager(mobil);
+
     if (!deltagerService.eksistererNummer(mobil) ||
         !passordService.erKorrektPassord(passord, deltager.getSalt(), deltager.getHash())) {
       ra.addFlashAttribute("errorMessage", "Ugyldig brukernavn og/eller passord");
       return "redirect:login";
     }
+    LoginUtil.loggInnBruker(request, deltager, mobil, deltager.getHash(), deltager.getSalt());
     return "redirect:deltagerliste";
   }
 
