@@ -1,0 +1,12 @@
+DROP SCHEMA IF EXISTS deltager_db CASCADE;
+CREATE SCHEMA deltager_db;
+SET search_path TO deltager_db;
+
+CREATE TABLE deltager (
+mobil CHARACTER (8) PRIMARY KEY,
+hash CHARACTER (64) NOT NULL,
+salt CHARACTER (32) NOT NULL,
+fornavn CHARACTER VARYING (40),
+etternavn CHARACTER VARYING (40),
+kjonn CHARACTER VARYING (6)
+);

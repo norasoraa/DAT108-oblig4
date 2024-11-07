@@ -27,9 +27,9 @@
 			<p>Mobil (8 siffer)</p>
 			<input type="text" name="mobil" id="mobil" pattern="[0-9]{8}" title="Mobilnummer må være eksakt 8 sifre" value="${deltager.mobil}" required>
 			<p>Passord</p>
-			<input type="password" name="passord" id="passord" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" title="Minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall" value="${deltager.passord}" required>
+			<input type="password" name="passord" id="passord" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" title="Minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall" required>
 			<p>Passord repetert</p>
-			<input type="password" name="repetertPassord" id="repetertPassord" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" value="${deltager.repetertPassord}" required>
+			<input type="password" name="repetertPassord" id="repetertPassord" patern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{8,}$" required>
 			<p>Kjønn</p>
 			<p>
 				<input type="radio" name="kjonn" id="mann" value="mann" required/>mann

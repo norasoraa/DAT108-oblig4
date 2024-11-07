@@ -12,6 +12,7 @@
 
 <body>
   <h1>Logg inn</h1>
+  <p style="color:red;">${errorMessage}</p>
   
   <form action="login" method="post">
     <fieldset>

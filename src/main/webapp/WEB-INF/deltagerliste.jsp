@@ -10,15 +10,18 @@
 </head>
 
 <body>
-	<h6>Innlogget som: ${deltager.mobil}/ ${deltager.fulltNavn}</h6>
+	<p>Innlogget som:</p>
+	<p>Mobil <c:out value="${deltager.mobil}"/><br>
+	<p>Navn <c:out value="${deltager.fulltNavn}"/><br>
+
 	<h1>Deltagerliste</h1>
 	<table>
 		<tr>
 			<th>Kjønn</th>
-			<th align="left">Navn</th>
-			<th align="left">Mobil</th>
+			<th text-align="left">Navn</th>
+			<th text-align="left">Mobil</th>
 		</tr>
-		<c:forEach var="deltager" items="${deltagere}">
+		<c:forEach var="deltager" items="${deltagerListe}">
 		<tr>
 			<td style="text-align: center">
 				<c:choose>
@@ -26,8 +29,8 @@
 					<c:when test="${deltager.kjonn == 'kvinne'}"> &#9792; </c:when>
 				</c:choose>
 			</td>
-			<td align="left">${deltager.fulltNavn}</td>
-			<td align="left">${deltager.mobil}</td>
+			<td text-align="left">${deltager.fulltNavn}</td>
+			<td text-align="left">${deltager.mobil}</td>
 		</tr>
 		</c:forEach>
 	</table>

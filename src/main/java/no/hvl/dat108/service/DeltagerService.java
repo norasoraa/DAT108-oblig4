@@ -4,13 +4,21 @@ import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import no.hvl.dat108.DeltagerRepo;
 import no.hvl.dat108.model.Deltager;
 
 /**
  * Class that contains a list of all participants as a list of {@link Deltager}.
  * Contains methods for extracting and modifying the list.
  */
+@Service
 public class DeltagerService {
+
+  @Autowired
+  private DeltagerRepo deltagerRepo;
 
   private static List<Deltager> alleDeltagere = Stream
       .of(new Deltager("Anne", "Panne", "23456789", "kvinne", "jdd3kedkWle", "jdd3kedkWle"),
@@ -28,12 +36,16 @@ public class DeltagerService {
    * @return {@code false} if the number already exists, {@code true} if the
    *         addition was successful
    */
-  public static boolean addDeltager(Deltager deltager) {
+  public boolean addDeltager(Deltager deltager) {
     if (eksistererNummer(deltager.getMobil())) {
       return false;
     }
     alleDeltagere.add(deltager);
     return true;
+  }
+
+  public Deltager saveDeltager(Deltager deltager) {
+    return deltagerRepo.save(deltager);
   }
 
   /**
@@ -42,17 +54,13 @@ public class DeltagerService {
    * @param mobilnummer the number to check
    * @return {@code true} if the number already exists, {@code false} otherwise
    */
-  public static boolean eksistererNummer(String mobil) {
+  public boolean eksistererNummer(String mobil) {
     for (Deltager deltager : alleDeltagere) {
       if (deltager.getMobil().equals(mobil)) {
         return true;
       }
     }
     return false;
-  }
-
-  public static List<Deltager> getAlleDeltagere() {
-    return alleDeltagere;
   }
 
 }
