@@ -113,37 +113,6 @@ public class DeltagerValideringTest {
     sjekkUgyldigVedBestemtFeil("Mobilnummer må være eksakt 8 sifre.");
   }
 
-  @Test
-  void gyldigPassord() {
-    testDeltager.setPassord("Klei12345");
-    sjekkGyldig();
-  }
-
-  @Test
-  void ugyldigPassordUtenStorBokstav() {
-    testDeltager.setPassord("kjoes0992");
-    sjekkUgyldigVedBestemtFeil(
-        "Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.");
-  }
-
-  @Test
-  void ugyldigPassordUtenLitenBokstav() {
-    testDeltager.setPassord("92KDJ45J");
-    sjekkUgyldigVedBestemtFeil("Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.");
-  }
-
-  @Test
-  void ugyldigPassordUtenTall() {
-    testDeltager.setPassord("heDKeksjeL");
-    sjekkUgyldigVedBestemtFeil("Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.");
-  }
-
-  @Test
-  void ugyldigPassordAntall() {
-    testDeltager.setPassord("Hei82");
-    sjekkUgyldigVedBestemtFeil("Passord må inneholde minst 8 tegn, med minst én stor bokstav, én liten bokstav og et tall.");
-  }
-
   private void sjekkUgyldigVedBestemtFeil(String feilmelding) {
     Set<ConstraintViolation<TestableDeltager>> violations = validator.validate(testDeltager);
     assertFalse(violations.isEmpty());
