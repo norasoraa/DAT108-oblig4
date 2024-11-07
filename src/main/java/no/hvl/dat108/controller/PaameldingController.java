@@ -54,8 +54,8 @@ public class PaameldingController {
       return "paamelding";
     }
 
-    // Sjekk for mobilnummer og legg til deltager dersom gyldig
-    if (!deltagerService.addDeltager(deltager)) {
+    // Sjekk om mobilnummer eksisterer
+    if (deltagerService.eksistererNummer(mobil)) {
       model.addAttribute("errorMessage", "Mobilnummeret er allerede registrert.");
       return "paamelding";
     }
@@ -64,8 +64,8 @@ public class PaameldingController {
     passord = passordService.hashMedSalt(passord, salt);
     Deltager nyDeltager = new Deltager(fornavn, etternavn, mobil, kjonn, passord, salt);
     deltagerService.saveDeltager(nyDeltager);
-     // legg til på ra
-     model.addAttribute("deltager", nyDeltager);
+    // legg til på ra
+    model.addAttribute("deltager", nyDeltager);
     // legg til på session
 
     // Send til bekreftelse siden dersom gyldig deltaker
